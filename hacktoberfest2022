@@ -54,12 +54,10 @@ enum ESystemNotify
 	SYSTEMNOTIFY_XUICLOSED,
 	SYSTEMNOTIFY_INVITE_SHUTDOWN,	// Cross-game invite is causing us to shutdown
 };
-
 public:
 	// initialization/shutdown
 	virtual void Initialize( CreateInterfaceFn appFactory ) = 0;
-	virtual void PostInit() = 0;
-
+	virtual void PostInit() = 0
 	// connect to other interfaces at the same level (gameui.dll/server.dll/client.dll)
 	virtual void Connect( CreateInterfaceFn gameFactory ) = 0;
 
