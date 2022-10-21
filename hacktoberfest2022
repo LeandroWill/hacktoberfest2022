@@ -22,3 +22,36 @@ _start:
 
     mov eax, 1
     int 0x8
+    #ifndef IGAMEUI_H
+#define IGAMEUI_H
+#ifdef _WIN32
+#pragma once
+#endif
+
+#include "interface.h"
+#include "vgui/IPanel.h"
+
+#if !defined( _X360 )
+#include "xbox/xboxstubs.h"
+#endif
+
+// reasons why the user can't connect to a game server
+enum ESteamLoginFailure
+{
+	STEAMLOGINFAILURE_NONE,
+	STEAMLOGINFAILURE_BADTICKET,
+	STEAMLOGINFAILURE_NOSTEAMLOGIN,
+	STEAMLOGINFAILURE_VACBANNED,
+	STEAMLOGINFAILURE_LOGGED_IN_ELSEWHERE
+};
+
+enum ESystemNotify
+{
+	SYSTEMNOTIFY_STORAGEDEVICES_CHANGED,
+	SYSTEMNOTIFY_USER_SIGNEDIN,
+	SYSTEMNOTIFY_USER_SIGNEDOUT,
+	SYSTEMNOTIFY_XUIOPENING,
+	SYSTEMNOTIFY_XUICLOSED,
+	SYSTEMNOTIFY_INVITE_SHUTDOWN,	// Cross-game invite is causing us to shutdown
+};
+
